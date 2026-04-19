@@ -1,21 +1,11 @@
-import { calcularMedia, calcularMediana, filtrarAntipicos } from "./math-utils";
+import { calcularMedia, calcularMediana, filtrarAtipicos } from './math-utils';
 
-//Defino el conjunto de datos para probar
-const datosPrueba: number[] = [10, 15, 20, 12, 9, 8, 4, 500, 14];//coloco el 500 para la pueba ya que es un valor atipico
-const limite = 100;
+const notasAlumnos = [8, 9, 5, 10, 4, 7];
+const arrayVacio: number[] = [];
 
-//Limpio los datos 
-const datosLimpios = filtrarAntipicos(datosPrueba, limite);
+console.log("Media de las notas:", calcularMedia(notasAlumnos));
+console.log("Mediana de las notas:", calcularMediana(notasAlumnos));
+console.log("Notas atípicas (menores o iguales a 5):", filtrarAtipicos(notasAlumnos, 5));
 
-//ejecuto los calculos 
-const media = calcularMedia (datosLimpios);
-const mediana = calcularMediana (datosLimpios);
-
-//Muestro el resultado controlando el posible valor "null"
-if (media !== null && mediana !== null ){
-    console.log(`Media tras filtrar: ${media.toFixed(2)}`);
-    console.log(`mediana tras filtrar: ${mediana}`);
-}
-else {
-    console.log("Error: el conjunto de datos esta vacio.");
-}
+// Prueba del caso límite (array vacío)
+console.log("Media sin alumnos matriculados:", calcularMedia(arrayVacio));
